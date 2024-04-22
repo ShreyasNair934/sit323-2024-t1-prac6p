@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservice-calculator-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: calculator
+  template:
+    metadata:
+      labels:
+        app: calculator
+    spec:
+      containers:
+      - name: microservice-calculator
+        image: microservice-calculator:latest
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: IfNotPresent
+
+
+
